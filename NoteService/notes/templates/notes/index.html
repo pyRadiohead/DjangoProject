@@ -1,0 +1,32 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Main page</title>
+</head>
+<body>
+{% if latest_note_list %}
+    <div class="card-deck mb-3 text-center">
+    {% for note in latest_note_list %}
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">{{note.title_text}}</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+                {{note.note_text}}
+              <a href="/notes/{{ note.id }}/" class="btn btn-lg btn-block btn-primary" role="button">View</a>
+
+            </ul>
+          </div>
+        </div>
+    {% endfor %}
+
+
+{% else %}
+    <p>No notes are available.</p>
+{% endif %}
+</body>
+</html>

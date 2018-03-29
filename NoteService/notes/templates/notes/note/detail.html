@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+{% block content %}
+<h1>Title: {{note.title_text}}</h1>
+<h2>Note text: {{note.note_text}}</h2>
+<br>Made by: {{ note.created_by }}
+<br>Published: {{note.pub_date}}
+{% endblock %}
+</body>
+</html>

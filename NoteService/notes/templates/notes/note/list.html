@@ -1,0 +1,13 @@
+{% extends "notes/master.html" %}
+
+{% block title %}Note App{% endblock %}
+
+{% block content %}
+   <h2 class="page-header">Recents Notes</h2>
+    {% for note in notes %}
+       <h3><a href="{{ note.get_absolute_url }}">{{ note.title_text }}</a></h3>
+        <p class="small">Made by {{ note.created_by }}</p>
+        <p>{{ note.note_text|truncatewords:25|linebreaks }}</p>
+    {% endfor %}
+    
+{% endblock %}
